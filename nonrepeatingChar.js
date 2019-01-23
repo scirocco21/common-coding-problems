@@ -10,3 +10,23 @@ function nonRepeat(string) {
     }
   } return false
 }
+
+// if the sring is not repeated, use different strategy:
+// 1. build a character count hash
+//  2. iterate over the keys in the hash and check if any of them correspond to a value of one
+function nonRepeat(string) {
+  let count = {};
+  for (let i = 0; i < string.length; i++) {
+    if (count[string[i]]) {
+      count[string[i]] += 1;
+    } else {
+      count[string[i]] = 1;
+    }
+  }
+    for (var char in count) {
+      if (count[char] === 1) {
+        return true;
+      }
+    }
+  return false;
+}
