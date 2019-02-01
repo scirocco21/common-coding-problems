@@ -29,3 +29,9 @@ function reverseString(str) {
   }
   return newStr.join("")
 }
+
+// use native Javascript reverse method instead of for loop
+function reverseString(str) {
+  // split string into chars array, then reverse array and stitch it back together
+  return str.split('').reverse().join('');
+}
