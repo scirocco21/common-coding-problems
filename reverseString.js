@@ -35,3 +35,12 @@ function reverseString(str) {
   // split string into chars array, then reverse array and stitch it back together
   return str.split('').reverse().join('');
 }
+
+// avoid using classic for loop by using ES 2015 notation
+function reverseString(str) {
+  let reversed = '';
+  for (let char of str) {
+    reversed = char + reversed;
+  }
+  return reversed;
+}
