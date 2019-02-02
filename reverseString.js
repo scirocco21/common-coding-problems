@@ -44,3 +44,9 @@ function reverseString(str) {
   }
   return reversed;
 }
+
+// alternative solution using .reduce() method
+function reverseString(str) {
+  // turn string into array of chars, using a empty string as first value of the accumulator
+  return str.split('').reduce((rev, char) => char + rev, '');
+}
