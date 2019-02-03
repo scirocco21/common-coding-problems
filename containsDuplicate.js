@@ -18,8 +18,8 @@ function containsDuplicate(arr) {
 // solution 2: sort array, then find duplicate by moving pointer across:
 
 function containsDuplicate(arr) {
-  let sortedArray = arr.sort((a,b) => a - b)
-  for (let i = 0; i < sortedArray.length; i++) {
+  let sortedArray = arr.sort()
+  for (let i = 0; i < sortedArray.length - 1; i++) {
     if (sortedArray[i] === sortedArray[i + 1]) {
       return true
     }
