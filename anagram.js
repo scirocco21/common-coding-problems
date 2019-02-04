@@ -20,21 +20,6 @@ function isAnagram(stringA, stringB) {
   return true;
 }
 
-// helper functions
-
-function sanitize(str) {
-  return str.replace(/[^\w]/g, "").toLowerCase()
-}
-
-function makeHash(str) {
-  let count = {};
-  for (let char of str) {
-      count[char] = count[char] + 1 || 1;
-  }
-  return count
-}
-
-isAnagram("Arc!!", "car")
 
 // Alternative version of main function
 function isAnagram(stringA, stringB) {
@@ -51,3 +36,35 @@ function isAnagram(stringA, stringB) {
   }
   return true;
 }
+
+// SOLUTION 2
+
+function isAnagram(a,b) {
+  let cleanA = sanitize(a)
+  let cleanB = sanitize(b)
+
+  for (let i = 0; i < cleanA.length; i++) {
+    if (cleanA.split("").sort()[i] !== cleanB.split("").sort()[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+
+// ===============
+// helper functions
+
+function sanitize(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase()
+}
+
+function makeHash(str) {
+  let count = {};
+  for (let char of str) {
+      count[char] = count[char] + 1 || 1;
+  }
+  return count
+}
+
+isAnagram("Arc!!", "car")
