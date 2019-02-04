@@ -20,6 +20,8 @@ function isAnagram(stringA, stringB) {
   return true;
 }
 
+// helper functions
+
 function sanitize(str) {
   return str.replace(/[^\w]/g, "").toLowerCase()
 }
@@ -33,3 +35,19 @@ function makeHash(str) {
 }
 
 isAnagram("Arc!!", "car")
+
+// Alternative version of main function
+function isAnagram(stringA, stringB) {
+  let aHash = makeHash(sanitize(stringA));
+  let bHash = makeHash(sanitize(stringB));
+  // compare both Hashes to see if they have equal number of keys
+  if (Object.keys(aHash).length !== Object.keys(bHash).length) {
+    return false
+  }
+  for (let key in aHash) {
+    if (aHash[key] !== bHash[key]) {
+      return false
+    }
+  }
+  return true;
+}
