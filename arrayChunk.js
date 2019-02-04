@@ -10,6 +10,17 @@ function arrayChunk(arr, n) {
   }
   return result
 }
+// variant:
+function arrayChunk(arr, n) {
+  const result = [];
+  let index = 0;
+  while (index < arr.length) {
+    // increment index for each iteration to define start and end of slice dynamically
+    result.push(arr.slice(index, n + index))
+    index += n;
+  }
+  return result
+}
 
 // alternative solution
 function arrayChunk(arr, n) {
@@ -20,7 +31,7 @@ function arrayChunk(arr, n) {
     if (!last || last.length === n) {
       result.push([el]);
     } else {
-    // otherwise fill up the last subarray 
+    // otherwise fill up the last subarray
       last.push(el);
     }
   }
