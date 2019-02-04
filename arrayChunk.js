@@ -16,9 +16,11 @@ function arrayChunk(arr, n) {
   const result = [];
   for (let el of arr) {
     const last = result[result.length - 1];
+    // if result contains no subarrays or its last subarray is full, make a new subarray with element
     if (!last || last.length === n) {
       result.push([el]);
     } else {
+    // otherwise fill up the last subarray 
       last.push(el);
     }
   }
