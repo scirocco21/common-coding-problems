@@ -50,7 +50,13 @@ function isAnagram(a,b) {
   }
   return true
 }
+// alternative version of solution 2
 
+function isAnagram(a,b) {
+  let cleanA = sanitize(a)
+  let cleanB = sanitize(b)
+  return cleanA.split("").sort().join("") === cleanB.split("").sort().join("")
+}
 
 // ===============
 // helper functions
