@@ -20,3 +20,25 @@ function steps(n) {
 }
 
 steps(4)
+
+// recursive solution  (note default arguments)
+function steps(n, row = 0, stair = "") {
+  // base case: once the function has built n number of 'rows', exit
+  if (row === n) {
+    return
+  }
+  // if the stair string has n number of characters, console.log it and call the function with rows increased by one
+  if (stair.length === n) {
+    console.log(stair);
+    steps(n, row + 1, stair = "")
+  } else {
+  // otherwise keep building the string
+    if (stair.length <= row) {
+      stair += "#";
+      steps(n, row, stair)
+    } else {
+      stair += "_"
+      steps(n, row, stair)
+    }
+  }
+}
