@@ -1,7 +1,7 @@
 // Given a root node, print the width of each level of the tree
 
 function levelWidth(root) {
-  const arr = [this.root, null];
+  const arr = [root, null];
   const widths = [0];
   while (arr.length) {
     const el = arr.shift();
@@ -18,3 +18,16 @@ function levelWidth(root) {
     }
   }
 }
+
+// test case:
+// 
+// levelWidth({data: 7, children: [
+//   {data: 2, children: [   
+//     {data: 3, children: []}
+//   ]},
+//   {data: 10, children: [
+//     {data: 4, children: []}
+//   ]}
+// ]})
+
+// return: [ 1, 2, 2 ]
