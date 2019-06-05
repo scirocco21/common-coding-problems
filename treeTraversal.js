@@ -16,3 +16,10 @@ class Node {
     });
   }
 }
+
+// add tree constructor function. By default, a tree has root set to null. A new tree instance can then have its root property set to a particular node.
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+}
