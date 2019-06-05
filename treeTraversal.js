@@ -22,4 +22,13 @@ class Tree {
   constructor() {
     this.root = null;
   }
+  // function to only traverse tree; extra functionality like printing or searching provided by parameter function `func`
+  breadthFirst(func) {
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.push(...node.children);
+      func(node);
+    }
+  }
 }
