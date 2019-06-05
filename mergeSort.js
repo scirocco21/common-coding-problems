@@ -1,4 +1,4 @@
-// uncomment to visualize
+// check out: https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/
 
 function mergeSort(nums) {
   // array of length 1 is automatically sorted
@@ -21,8 +21,6 @@ function mergeSort(nums) {
 // helper function
 function stitch(left,right) {
   const results = [];
-  // console.log('Left: ' + left);
-  // console.log('Right: ' + right);
   // loop until length of subarrays reaches zero
   while(left.length && right.length) {
     if (left[0] <= right[0]) {
@@ -30,7 +28,6 @@ function stitch(left,right) {
     } else {
       results.push(right.shift())
     }
-    // console.log('Results: ' + results)
   }
   // finally concatenate the sorted results array with any leftovers
    return results.concat(left, right);
