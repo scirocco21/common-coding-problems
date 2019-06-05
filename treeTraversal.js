@@ -31,4 +31,12 @@ class Tree {
       func(node);
     }
   }
+  depthFirst(func){
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.unshift(...node.children);
+      func(node);
+    }
+  }
 }
