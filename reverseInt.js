@@ -1,5 +1,7 @@
 // write a function that reverses an integer, e.g. given -90, the function return -9
-
+// =======
+// SOLUTION 1
+// =======
 function reverseInt(int) {
   if (int > -1) {
     return parseInt(reverseStringifiedInt(String(int)))
@@ -20,7 +22,9 @@ function reverseStringifiedInt(str) {
   return reversed;
 }
 
-// more succint solution
+// ========== more succint solution =========
+// SOLUTION 2 //
+//=========== 
 function reverseInt(int) {
   const reversed = int
     .toString()
@@ -29,4 +33,22 @@ function reverseInt(int) {
     .join('')
 
   return parseInt(reversed) * Math.sign(int);
+}
+
+
+//====== alternative solution =====
+// SOLUTION 3
+//=======
+function reverseInt(n) {
+  let multiplier = 1;
+  let result = ""
+  if (n < 0) {
+    n = n * -1;
+    multiplier = -1;
+  }
+  let stringifiedN = n.toString();
+  for (let char of stringifiedN) {
+    result = char + result;
+  }
+  return parseInt(result) * multiplier
 }
