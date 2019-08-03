@@ -29,9 +29,10 @@ class LinkedList {
     let previousNode;
     let node = this.head;
     while (node) {
-      previousNode = node;
+      if (!node.next) {
+        return node
+      }
       node = node.next
     }
-    return previousNode;
   }
 }
