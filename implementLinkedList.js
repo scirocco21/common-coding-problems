@@ -38,4 +38,14 @@ class LinkedList {
   clearList() {
     this.head = null;
   }
+  removeFirst() {
+    // if the list is empty (list.head points at null) return
+    if (!this.head) {
+      return 
+    } 
+    // otherwise set the head pointer to head.next
+    // if the list has only node, head will point to null
+    // otherwise it will skip the first node and point to the second
+    this.head = this.head.next;
+  }
 }
