@@ -2,17 +2,17 @@ class Stack {
   constructor() {
     this.data = [];
   }
-  remove = () => {
+  remove() {
     if (this.isEmpty()) {
       return "Underflow";
     }
     return this.data.pop()
   };
-  add = (el) => {
+  add(el) {
     this.data.push(el);
   }
-  isEmpty = () => {
-    this.data.length === 0 ? true : false
+  isEmpty() {
+    return this.data.length === 0 ? true : false
   }
 }
 
