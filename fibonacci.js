@@ -14,3 +14,24 @@ function fib(n) {
   }
   return fib(n-1) + fib(n-2)
 }
+
+// memoized fibonacci function
+function slowFib(n) {
+  if (n < 2 ) {
+    return n
+  }
+  return fib(n-1) + fib(n-2)
+}
+
+function memoize(fn) {
+  const cache = {};
+  return function(num) {
+    if (cache[num]) {
+      return cache[num];
+    }
+    cache[num] =fn(num);
+    return cache[num]
+  }
+}
+
+const fib = memoize(slowFib)
