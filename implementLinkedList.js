@@ -48,7 +48,6 @@ class LinkedList {
     this.head = this.head.next;
   }
   removeLast() {
-    let size = this.size();
     if (!this.head) {
       return
     }
@@ -62,5 +61,14 @@ class LinkedList {
       node = node.next;
     }
     previous.next = null;
+  }
+  insertLast(data) {
+    let node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+    let last = this.getLast();
+    last.next = node;
   }
 }
