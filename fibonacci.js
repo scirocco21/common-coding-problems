@@ -20,16 +20,17 @@ function slowFib(n) {
   if (n < 2 ) {
     return n
   }
+// make recursive calls to the memoized version of fib, not the slow one
   return fib(n-1) + fib(n-2)
 }
-
+// memoizer function returns new function that improves performance of its input function
 function memoize(fn) {
   const cache = {};
   return function(num) {
     if (cache[num]) {
       return cache[num];
     }
-    cache[num] =fn(num);
+    cache[num] = fn(num);
     return cache[num]
   }
 }
