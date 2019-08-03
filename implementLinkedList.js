@@ -1,5 +1,3 @@
-const clonedeep = require('lodash.clonedeep')
-
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -17,12 +15,23 @@ class LinkedList {
   }
   size() {
     let size = 0;
-    // don't overwrite head property of original list!
-    let linkedList = clonedeep(this)
-    while(linkedList.head) {
+    let node = this.head
+    while(node) {
       size++;
-      linkedList.head = linkedList.head.next;
+      node = node.next;
     }
     return size;
+  }
+  getFirst() {
+    return this.head
+  }
+  getLast() {
+    let previousNode;
+    let node = this.head;
+    while (node) {
+      previousNode = node;
+      node = node.next
+    }
+    return previousNode;
   }
 }
