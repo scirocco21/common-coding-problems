@@ -85,4 +85,22 @@ class LinkedList {
     // if while loop exits or gets skipped, return null
     return null;
   }
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+    // check that index does not exceed list length
+    if (index < this.size()) {
+      // get previous node
+      let previous = this.getAt(index - 1);
+      // skip target node;
+      previous.next = previous.next.next;
+    } else {
+      return null;
+    }
+  }
 }
