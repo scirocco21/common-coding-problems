@@ -124,4 +124,12 @@ class LinkedList {
       addedNode.next = current;
     }
   }
+  forEach(callback) {
+    let node = this.head;
+    while (node) {
+      node.data = callback(node.data);
+      node = node.next;
+    }
+    return this;
+  }
 }
