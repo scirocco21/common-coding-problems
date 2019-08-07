@@ -103,4 +103,25 @@ class LinkedList {
       return null;
     }
   }
+  insertAt(data,index) {
+    let addedNode = new Node(data);
+    if (!this.head) {
+      this.head = addedNode;
+      return;
+    }
+    if (index === 0) {
+      let previous = this.getFirst();
+      this.head = addedNode;
+      addedNode.next = previous;
+      return;
+    }
+    if (index >= this.size()) {
+      this.insertLast(data);
+    } else {
+      let previous = this.getAt(index - 1);
+      let current = previous.next;
+      previous.next = addedNode;
+      addedNode.next = current;
+    }
+  }
 }
