@@ -10,8 +10,7 @@ class LinkedList {
     this.head = head;
   }
   insertFirst(data) {
-    // set next property of new head node to previous head node
-    this.head = new Node(data, this.head);
+    return this.insertAt(data,0)
   }
   size() {
     let size = 0;
@@ -23,53 +22,22 @@ class LinkedList {
     return size;
   }
   getFirst() {
-    return this.head
+    return this.getAt(0);
   }
-  getLast() {
-    let node = this.head;
-    while (node) {
-      if (!node.next) {
-        return node
-      }
-      node = node.next
-    }
+  getLast() {   
+    return this.getAt(this.size() - 1)
   }
   clearList() {
     this.head = null;
   }
   removeFirst() {
-    // if the list is empty (list.head points at null) return
-    if (!this.head) {
-      return 
-    } 
-    // otherwise set the head pointer to head.next
-    // if the list has only node, head will point to null
-    // otherwise it will skip the first node and point to the second
-    this.head = this.head.next;
+    return this.removeAt(0);
   }
   removeLast() {
-    if (!this.head) {
-      return
-    }
-    if (!this.head.next) {
-      this.head = null;
-    }
-    let node = this.head;
-    let previous;
-    while (node) {
-      previous = node;
-      node = node.next;
-    }
-    previous.next = null;
+    return this.removeAt(this.size() - 1);
   }
   insertLast(data) {
-    let node = new Node(data);
-    if (!this.head) {
-      this.head = node;
-      return;
-    }
-    let last = this.getLast();
-    last.next = node;
+    return this.insertAt(data, this.size() - 1);
   }
   getAt(index) {
     let node = this.head;
@@ -115,8 +83,8 @@ class LinkedList {
       addedNode.next = previous;
       return;
     }
-    if (index >= this.size()) {
-      this.insertLast(data);
+    if (index >= this.size() - 1) {
+      this.getLast().next = addedNode;
     } else {
       let previous = this.getAt(index - 1);
       let current = previous.next;
