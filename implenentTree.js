@@ -23,9 +23,19 @@ class Tree {
     while(nodes.length > 0) {
       let node = nodes.shift();
       fn(node);
-      for (let child of node.children) {
-        nodes.push(child);
-      }
+      nodes.push(...node.children)
+    }
+    return this;
+  }
+  traverseDF(fn) {
+    let nodes = [];
+    if (this.root) {
+      nodes.push(this.root);
+    }
+    while(nodes.length > 0) {
+      let node = nodes.shift();
+      fn(node);
+      nodes.unshift(...node.children)
     }
     return this;
   }
