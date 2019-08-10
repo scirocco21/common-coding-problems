@@ -26,6 +26,7 @@ class Node {
     }
     return false;
   }
+
   validate(min = null, max = null) {
     // ==========
     // add logic for left hand side of BST
