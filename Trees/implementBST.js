@@ -26,7 +26,6 @@ class Node {
     }
     return false;
   }
-
   validate(min = null, max = null) {
     // ==========
     // add logic for left hand side of BST
@@ -51,5 +50,22 @@ class Node {
       return false;
     }
     return true
+  }
+  // print all BST values in an array; assume queue will contain root 
+  breadthFirst(queue, array) {
+    if (!queue || !queue.length) {
+      return array;
+    }
+    while (queue.length) {
+      let node = queue.shift();
+      array.push(node.value);
+      if(node.left) {
+        queue.push(node.left);
+      }
+      if(node.right) {
+        queue.push(node.right)
+      }
+    }
+    return array;
   }
 }
