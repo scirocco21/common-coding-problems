@@ -6,7 +6,7 @@ function insertionSort(nums) {
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++ ) {
       // console.log(nums[i], nums[j])
-      if (num[i] < nums[j]) {
+      if (nums[i] < nums[j]) {
         const spliced = nums.splice(i, 1)
         nums.splice(j, 0, spliced[0])
       }
