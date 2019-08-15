@@ -3,6 +3,6 @@ const preorderTraverse = (node,array) => {
   // process node by storing its value in array
   array.push(node.value);
   preorderTraverse(node.left, array);
-  preorderTraverse(node.left, array);
+  preorderTraverse(node.right, array);
   return array;
 }
