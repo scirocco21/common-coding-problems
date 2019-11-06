@@ -24,6 +24,9 @@
 // each element of array A is an integer within the range [1..(N + 1)].
 
 function solution(A) {
+  if (A.length === 0) {
+    return 1;
+  }
   let totalOfA = 0;
   let largest = A[0]
   
