@@ -22,6 +22,32 @@ let head = new Node(5, new Node(1, new Node(3, new Node(6), new Node(7)), new No
 //      / \ 
 //     6   7
 
+
+
+function lca(root, val1, val2) {
+  let pathToOne = path(root, val1);
+  let pathToTwo = path(root, val2);
+  console.log(pathToOne,pathToTwo)
+  // if either value is not in the tree, return null
+  if (!pathToOne || !pathToTwo) {
+    return null
+  }
+  let result = null;
+  // pop values of the stack until they are different - whatever 
+  // is assigned to result at that point is the lca
+  while (pathToOne.length !== 0 && pathToTwo.length !== 0) {
+    let i = pathToOne.pop();
+    let j = pathToTwo.pop();
+    if (i === j) {
+      result = i;
+    } else {
+      break;
+    }
+  }
+  return result
+}
+
+//helper method
 function path(root, val) {
   // base case: x is not in the (sub)tree
   if (root === null) return null;
