@@ -20,7 +20,7 @@ function slowFib(n) {
   if (n < 2 ) {
     return n
   }
-// make recursive calls to the memoized version of fib, not the slow one
+// make recursive calls to the memoized version of fib, not slowFib
   return fib(n-1) + fib(n-2)
 }
 // memoizer function returns new function that improves performance of its input function
