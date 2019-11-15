@@ -5,6 +5,7 @@
 
 var reverseVowels = function(s) {
   const vowels = ["a","e","i","o","u", "A", "E", "I", "O", "U"];
+  // collect all vowels
   let vowelsInS = []
   for (let i = 0; i < s.length; i++) {
       let char = s[i];
@@ -12,6 +13,7 @@ var reverseVowels = function(s) {
           vowelsInS.push(vowels[vowels.indexOf(char)]);
       }
   }
+  // build up result string and fill in vowels with slow pointer (reverseIndex)
   let result = "";
   let reverseIndex = vowelsInS.length - 1
   for (let i = 0; i < s.length; i++) {
