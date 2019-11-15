@@ -11,7 +11,7 @@ function nonRepeat(string) {
   } return false
 }
 
-// if the sring is not repeated, use different strategy:
+// if the string is not sorted, use different strategy:
 // 1. build a character count hash
 //  2. iterate over the keys in the hash and check if any of them correspond to a value of one
 function nonRepeat(string) {
