@@ -2,17 +2,7 @@ function reverseWordOrder(array) {
   /* first swap all the characters in the array, e.g.:
   ["m","e","e","t"," ","l","e","t","s"] => ["s","t","e","l"," ", "t","e","e","m"]
   */
-  let beginning = 0;
-  let end = array.length - 1;
-  let temp;
-
-  while(beginning < end) {
-    temp = array[end];
-    array[end] = array[beginning]
-    array[beginning] = temp
-    beginning++;
-    end--;
-  }
+  reverseCharacters(array,0,array.length-1)
   // then call helper function that reverses each word in the reverse array
   reverseAllWords(array)
 }
