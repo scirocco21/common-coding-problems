@@ -6,9 +6,9 @@ class TempTracker {
     this.minTemp = 110;
     this.totalValues = 0;
     this.count = 0;
-    this.highestFrequency = 0;
     this.frequencyHash = {};
-    this.modes = [];
+    this.maxOccurrences = 0;
+    this.mode = 0;
   }
   insert(temperature) {
     // keep track of maxTemp
@@ -24,20 +24,14 @@ class TempTracker {
     this.count++;
     // make a hash table with frequencies
     if (this.frequencyHash[temperature]) {
-      this.frequencyHash[temperature] += 1
+      this.frequencyHash[temperature]++;
     } else {
       this.frequencyHash[temperature] = 1;
     }
-    // keep track of the highest frequency
-    if (this.frequencyHash[temperature] > this.highestFrequency) {
-      this.highestFrequency = this.frequencyHash[temperature]
-    }
-    // keep updating the modes array every time a new temperature is inserted
-    this.modes = []; // empty out the modes array every time insert() is called
-    for (let temp in this.frequencyHash) {
-      if (this.frequencyHash[temp] === this.highestFrequency) {
-        this.modes.push(temp)
-      }
+    // keep track of the highest frequency and 
+    if (this.frequencyHash[temperature] > this.maxOccurrences) {
+      this.mode = temperature;
+      this.maxOccurrences = this.frequencyHash[temperature];
     }
   }
 
@@ -58,6 +52,14 @@ class TempTracker {
   }
 
   getMode() {
-    return parseInt(this.modes[0]);
+    return this.mode
   }
 }
+
+// Testing 
+const t = new TempTracker();
+t.insert(50);
+t.insert(80);
+t.insert(80);
+t.insert(30)
+console.log(t.getMode()) // => expect 80
