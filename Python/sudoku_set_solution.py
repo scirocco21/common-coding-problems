@@ -1,3 +1,7 @@
+
+# Write a function that accepts an input of an n*n soduko square and validates
+# that the input conforms to the rules of the puzzle. Example inputs below:
+
 correct = [[1,2,3],
            [2,3,1],
            [3,1,2]]
@@ -24,7 +28,8 @@ incorrect4 = [['a','b','c'],
 
 incorrect5 = [ [1, 1.5],
                [1.5, 1]]
-               
+
+ # set-based solution              
 def check_sudoku(array):
     seen = set()
     max_value = len(array)
